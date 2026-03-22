@@ -24,7 +24,7 @@ email-scheduler/
 │   └── email.test.js          # Jest unit + integration tests
 ├── app.js                     # Express app setup + error handling
 ├── server.js                  # Entry point: DB sync + scheduler + HTTP
-├── .env.example               # Environment variable template
+├── .env                       # Environment variable template
 ├── .eslintrc.json             # ESLint config
 └── package.json
 ```
@@ -53,7 +53,7 @@ npm install
 ### 2. Configure environment variables
 
 ```bash
-cp .env.example .env
+cp .env
 ```
 
 Edit `.env`:
