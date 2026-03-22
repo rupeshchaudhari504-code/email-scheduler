@@ -64,7 +64,7 @@ PORT=3000
 DB_HOST=localhost
 DB_PORT=3306
 DB_USER=root
-DB_PASSWORD=your_password
+DB_PASSWORD=
 DB_NAME=email_scheduler
 
 SENDGRID_API_KEY=SG.xxxxxxxxxxxxxxxxxxxx
@@ -165,18 +165,42 @@ GET /emails?status=pending&page=1&limit=10
 **200 OK:**
 ```json
 {
-  "success": true,
-  "data": [...],
-  "pagination": {
-    "total": 42,
-    "page": 1,
-    "limit": 10,
-    "totalPages": 5,
-    "hasNextPage": true,
-    "hasPrevPage": false
-  }
-}
-```
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "to_email": "rupesh@mailinator.com",
+            "subject": "Welcome!",
+            "body": "Hi there, welcome to platform. Your mail scheduled.",
+            "scheduled_time": "2026-03-22T06:04:00.000Z",
+            "status": "sent",
+            "error_message": null,
+            "retry_count": 0,
+            "created_at": "2026-03-22T06:03:40.000Z",
+            "updated_at": "2026-03-22T06:04:02.000Z"
+        },
+        {
+            "id": 2,
+            "to_email": "om@mailinator.com",
+            "subject": "Welcome!",
+            "body": "Hi there, welcome to platform. Your e-mail scheduled.",
+            "scheduled_time": "2026-03-22T06:08:00.000Z",
+            "status": "sent",
+            "error_message": null,
+            "retry_count": 0,
+            "created_at": "2026-03-22T06:07:43.000Z",
+            "updated_at": "2026-03-22T06:08:01.000Z"
+        }
+    ],
+    "pagination": {
+        "total": 2,
+        "page": 1,
+        "limit": 10,
+        "totalPages": 1,
+        "hasNextPage": false,
+        "hasPrevPage": false
+    }
+}```
 
 ---
 
@@ -230,12 +254,12 @@ DELETE /emails/1
 
 ---
 
-### `GET /health` — Health check
+### `GET /` — Health check
 
 ```json
 {
   "status": "ok",
-  "timestamp": "2025-06-01T12:00:00.000Z",
+  "timestamp":"2026-03-22T06:01:47.227Z",
   "service": "email-scheduler-api"
 }
 ```
